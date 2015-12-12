@@ -1,5 +1,5 @@
 <div class="cart">
-	<table class="cart__books">
+	<table ng-show="currentCart.length > 0" class="cart__books">
 		<tr class="cart__column-headers">
 			<th>Couverture</th>
 			<th>Titre</th>
@@ -51,4 +51,7 @@
 			<td></td>
 		</tr>
 	</table>
+	<div ng-hide="currentCart.length > 0" class="cart__empty">
+		Votre panier est vide
+	</div>
 </div>
