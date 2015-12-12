@@ -193,3 +193,9 @@ th, td {
 	font-weight: bold;
 	color: #B12704;
 }
+
+.cart__empty {
+	margin: 100px;
+	text-align: center;
+	font-size: 20px;
+}

@@ -27,10 +27,12 @@ angular.module('henriPotier.cart', ['ngRoute'])
 
 
 	$scope.getCommercialOffers = function() {
-		// Récupération de l'offre commerciale
-		Books.get({isbn: $scope.currentCart.join()}, function(response) {
-			$scope.offers = response.offers;
-		});
+		// Récupération des offres commerciales
+		if ($scope.currentCart.length > 0) {
+			Books.get({isbn: $scope.currentCart.join()}, function(response) {
+				$scope.offers = response.offers;
+			});
+		}
 	}
 
 	// Récupération des livres dans le panier
