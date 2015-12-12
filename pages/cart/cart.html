@@ -1,0 +1,54 @@
+<div class="cart">
+	<table class="cart__books">
+		<tr class="cart__column-headers">
+			<th>Couverture</th>
+			<th>Titre</th>
+			<th>Prix</th>
+			<th>Quantité</th>
+			<th>Total</th>
+			<th>Supprimer</th>
+		</tr>
+		<tr class="cart__book" ng-repeat="book in cartBooks | orderBy:'price'">
+			<td>
+				<img class="cart__book-image" src="{{book.cover}}"></img>
+			</td>
+			<td class="cart__book-infos">
+				<div class="cart__book-title">{{book.title}}</div>
+				<div class="cart__book-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</td>
+			<td class="cart__book-price">{{book.price | currency:"&euro;"}}</td>
+			<td class="cart__book-quantity">
+				<input type="number" ng-model="book.qty" min="1" max="99">
+			</td>
+			<td class="cart__book-total">
+				{{totalForOneBook(book) | currency:"&euro;"}}
+			</td>
+			<td>
+				<button class="cart__button" type="button" title="Retirer du panier" ng-click="removeFromCart(book)">
+					<span class="cart__button-icon"></span>
+				</button>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="cart__total-label">Total :</td>
+			<td class="cart__total-price">
+				{{totalPrice(false) | currency:"&euro;"}}
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="cart__commercial-offer">{{selectedOffer}}</td>
+			<td></td>
+			<td class="cart__total-label">Total après remise :</td>
+			<td class="cart__total-price">
+				{{totalPrice(true) | currency:"&euro;"}}
+			</td>
+			<td></td>
+		</tr>
+	</table>
+</div>

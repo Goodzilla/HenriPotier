@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="henriPotier">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>La bibliothèque d'Henri Potier</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="global/css/app.css">
+</head>
+<body>
+	<div class="header">
+		<a class="header__store" href="#/store"></a>
+		<a class="header__cart" href="#/cart"></a>	
+	</div>
+
+	<div ng-view></div>
+
+	<script src="global/js/angular.min.js"></script>
+	<script src="global/js/angular-route.min.js"></script>
+	<script src="global/js/angular-resource.min.js"></script>
+	<script src="global/js/app.js"></script>
+	<script src="global/js/services.js"></script>
+	<script src="pages/store/store.js"></script>
+	<script src="pages/cart/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<div class="store">
+	<table class="store__books">
+		<tr class="store__column-headers">
+			<th>Couverture</th>
+			<th>Titre</th>
+			<th class="store__column-sortable">
+				<span ng-click="reverseOrder('price')">Prix</span>
+				<span class="books__sort-order" ng-class="{reverse:reverse}"></span>
+			</th>
+			<th></th>
+		</tr>
+		<tr class="store__book" ng-repeat="book in books | orderBy:'price':reverse">
+			<td>
+				<img class="store__book-image" src="{{book.cover}}"></img>
+			</td>
+			<td class="store__book-infos">
+				<div class="store__book-title">{{book.title}}</div>
+				<div class="store__book-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</td>
+			<td class="store__book-price">Prix : <strong>{{book.price}}€</strong></td>
+			<td>
+				<button class="store__button" type="button" title="Ajouter au panier" ng-disabled="isDisabled[book.isbn]" ng-click="addToCart(book)">
+					<span class="store__button-icon"></span>
+				</button>
+			</td>
+		</tr>
+	</table>
+</div>
